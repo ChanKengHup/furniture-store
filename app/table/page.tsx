@@ -1,14 +1,12 @@
-import type { Metadata } from "next"
-import Header from "@/components/header"
-import ProductGrid from "@/components/product-grid"
-import Footer from "@/components/footer"
+import type { Metadata } from "next";
+import ProductGrid from "@/components/product-grid";
 
 export const metadata: Metadata = {
   title: "Tables - DECOR Furniture Store",
   description:
     "Shop our table collection including dining tables, coffee tables, study tables and computer desks. Quality furniture for every room.",
   keywords: "tables, dining table, coffee table, study table, computer desk",
-}
+};
 
 const tableProducts = [
   {
@@ -55,14 +53,12 @@ const tableProducts = [
     price: 120.0,
     image: "/placeholder.svg?height=300&width=300",
   },
-]
+];
 
 export default function TablePage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <ProductGrid products={tableProducts} category="Table" />
-      <Footer />
     </main>
-  )
+  );
 }

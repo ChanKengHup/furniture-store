@@ -1,14 +1,12 @@
-import type { Metadata } from "next"
-import Header from "@/components/header"
-import ProductGrid from "@/components/product-grid"
-import Footer from "@/components/footer"
+import type { Metadata } from "next";
+import ProductGrid from "@/components/product-grid";
 
 export const metadata: Metadata = {
   title: "Sofas - DECOR Furniture Store",
   description:
     "Browse our collection of modern sofas, couches, and living room furniture. Free installation and 5 years warranty.",
   keywords: "sofa, couch, living room furniture, modern sofa, sectional sofa",
-}
+};
 
 const sofaProducts = [
   {
@@ -69,14 +67,12 @@ const sofaProducts = [
     description:
       "Habitasse eaque wisi molestie, mollis pharetra convallis exercitation, distinctio eu arcu fugit nibh donec exercitationem, quisque imperdiet mattis pr.",
   },
-]
+];
 
 export default function SofaPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <ProductGrid products={sofaProducts} category="Sofa" />
-      <Footer />
     </main>
-  )
+  );
 }

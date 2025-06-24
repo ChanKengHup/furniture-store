@@ -1,14 +1,12 @@
-import type { Metadata } from "next"
-import Header from "@/components/header"
-import ProductGrid from "@/components/product-grid"
-import Footer from "@/components/footer"
+import type { Metadata } from "next";
+import ProductGrid from "@/components/product-grid";
 
 export const metadata: Metadata = {
   title: "Chairs - DECOR Furniture Store",
   description:
     "Discover our chair collection including office chairs, armchairs, dining chairs and more. Modern designs with comfort guarantee.",
   keywords: "chairs, office chair, armchair, dining chair, modern chair",
-}
+};
 
 const chairProducts = [
   {
@@ -55,14 +53,12 @@ const chairProducts = [
     price: 550.0,
     image: "/placeholder.svg?height=300&width=300",
   },
-]
+];
 
 export default function ChairPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <ProductGrid products={chairProducts} category="Chair" />
-      <Footer />
     </main>
-  )
+  );
 }

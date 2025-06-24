@@ -1,14 +1,13 @@
-import type { Metadata } from "next"
-import Header from "@/components/header"
-import ProductGrid from "@/components/product-grid"
-import Footer from "@/components/footer"
+import type { Metadata } from "next";
+import ProductGrid from "@/components/product-grid";
 
 export const metadata: Metadata = {
   title: "All Products - DECOR Furniture Store",
   description:
     "Browse our complete furniture collection including sofas, chairs, tables and more. Modern designs with free installation and 5 years warranty.",
-  keywords: "furniture, all products, sofa, chair, table, modern furniture, affordable furniture",
-}
+  keywords:
+    "furniture, all products, sofa, chair, table, modern furniture, affordable furniture",
+};
 
 // Combined products from all categories
 const allProducts = [
@@ -79,7 +78,8 @@ const allProducts = [
     category: "Chair",
     price: 380.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Elegant and comfortable chairs perfect for any dining room or office space.",
+    description:
+      "Elegant and comfortable chairs perfect for any dining room or office space.",
   },
   {
     id: 8,
@@ -89,7 +89,8 @@ const allProducts = [
     originalPrice: 199.0,
     image: "/placeholder.svg?height=300&width=300",
     onSale: true,
-    description: "Stylish wingback chair with vibrant yellow upholstery, perfect for reading corners.",
+    description:
+      "Stylish wingback chair with vibrant yellow upholstery, perfect for reading corners.",
   },
   {
     id: 9,
@@ -97,7 +98,8 @@ const allProducts = [
     category: "Chair",
     price: 299.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Ergonomic office chair designed for long hours of comfortable work.",
+    description:
+      "Ergonomic office chair designed for long hours of comfortable work.",
   },
   {
     id: 10,
@@ -105,7 +107,8 @@ const allProducts = [
     category: "Chair",
     price: 650.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Premium leather armchair with classic design and superior comfort.",
+    description:
+      "Premium leather armchair with classic design and superior comfort.",
   },
   {
     id: 11,
@@ -113,7 +116,8 @@ const allProducts = [
     category: "Chair",
     price: 240.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Set of 4 modern dining chairs with sleek design and comfortable seating.",
+    description:
+      "Set of 4 modern dining chairs with sleek design and comfortable seating.",
   },
   {
     id: 12,
@@ -121,7 +125,8 @@ const allProducts = [
     category: "Chair",
     price: 550.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Luxurious recliner chair with multiple position settings for ultimate relaxation.",
+    description:
+      "Luxurious recliner chair with multiple position settings for ultimate relaxation.",
   },
 
   // Table Products
@@ -131,7 +136,8 @@ const allProducts = [
     category: "Table",
     price: 450.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Contemporary dining table that seats 6 people comfortably with elegant design.",
+    description:
+      "Contemporary dining table that seats 6 people comfortably with elegant design.",
   },
   {
     id: 14,
@@ -139,7 +145,8 @@ const allProducts = [
     category: "Table",
     price: 280.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Sleek glass coffee table with modern metal legs, perfect for living rooms.",
+    description:
+      "Sleek glass coffee table with modern metal legs, perfect for living rooms.",
   },
   {
     id: 15,
@@ -147,7 +154,8 @@ const allProducts = [
     category: "Table",
     price: 320.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Functional study table with built-in drawers for storage and organization.",
+    description:
+      "Functional study table with built-in drawers for storage and organization.",
   },
   {
     id: 16,
@@ -157,7 +165,8 @@ const allProducts = [
     originalPrice: 249.0,
     image: "/placeholder.svg?height=300&width=300",
     onSale: true,
-    description: "Compact computer desk with cable management and keyboard tray.",
+    description:
+      "Compact computer desk with cable management and keyboard tray.",
   },
   {
     id: 17,
@@ -165,7 +174,8 @@ const allProducts = [
     category: "Table",
     price: 380.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Beautiful round dining table perfect for intimate family meals and gatherings.",
+    description:
+      "Beautiful round dining table perfect for intimate family meals and gatherings.",
   },
   {
     id: 18,
@@ -173,7 +183,8 @@ const allProducts = [
     category: "Table",
     price: 120.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Compact side table ideal for bedrooms, living rooms, or as accent furniture.",
+    description:
+      "Compact side table ideal for bedrooms, living rooms, or as accent furniture.",
   },
 
   // Additional Mixed Products
@@ -183,7 +194,8 @@ const allProducts = [
     category: "Chair",
     price: 420.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "High-back executive chair with premium materials and ergonomic support.",
+    description:
+      "High-back executive chair with premium materials and ergonomic support.",
   },
   {
     id: 20,
@@ -193,7 +205,8 @@ const allProducts = [
     originalPrice: 1499.0,
     image: "/placeholder.svg?height=300&width=300",
     onSale: true,
-    description: "Spacious L-shaped sectional sofa perfect for large living rooms and entertainment areas.",
+    description:
+      "Spacious L-shaped sectional sofa perfect for large living rooms and entertainment areas.",
   },
   {
     id: 21,
@@ -201,7 +214,8 @@ const allProducts = [
     category: "Table",
     price: 220.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Elegant console table perfect for entryways, hallways, or behind sofas.",
+    description:
+      "Elegant console table perfect for entryways, hallways, or behind sofas.",
   },
   {
     id: 22,
@@ -209,7 +223,8 @@ const allProducts = [
     category: "Chair",
     price: 180.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Set of 2 adjustable bar stools with modern design and comfortable seating.",
+    description:
+      "Set of 2 adjustable bar stools with modern design and comfortable seating.",
   },
   {
     id: 23,
@@ -217,7 +232,8 @@ const allProducts = [
     category: "Sofa",
     price: 150.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Multi-functional ottoman that serves as seating and storage solution.",
+    description:
+      "Multi-functional ottoman that serves as seating and storage solution.",
   },
   {
     id: 24,
@@ -225,14 +241,14 @@ const allProducts = [
     category: "Table",
     price: 399.0,
     image: "/placeholder.svg?height=300&width=300",
-    description: "Height-adjustable standing desk for healthier work habits and improved productivity.",
+    description:
+      "Height-adjustable standing desk for healthier work habits and improved productivity.",
   },
-]
+];
 
 export default function AllProductsPage() {
   return (
     <main className="min-h-screen">
-      <Header />
       <div className="bg-gray-50 dark:bg-gray-900 py-8 transition-colors duration-300">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
@@ -240,14 +256,14 @@ export default function AllProductsPage() {
               All Products
             </h1>
             <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto transition-colors duration-300">
-              Discover our complete furniture collection featuring sofas, chairs, tables and more. Quality furniture for
-              every room in your home.
+              Discover our complete furniture collection featuring sofas,
+              chairs, tables and more. Quality furniture for every room in your
+              home.
             </p>
           </div>
         </div>
       </div>
       <ProductGrid products={allProducts} category="All Products" />
-      <Footer />
     </main>
-  )
+  );
 }
