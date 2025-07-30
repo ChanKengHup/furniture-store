@@ -50,7 +50,7 @@ export default function HomePage() {
       <HeroSection />
       <ProductShowcase />
       <TrustIndicators />
-      <SaleSection />
+      {/* <SaleSection /> */}
       <LatestProducts />
       <Testimonials />
     </main>
