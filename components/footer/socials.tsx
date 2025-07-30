@@ -6,7 +6,8 @@ export default function Socials() {
     <div
       className="relative bg-cover bg-center py-16"
       style={{
-        backgroundImage: "url('/placeholder.svg?height=300&width=1200')",
+        backgroundImage:
+          "url('../../public/images/sofa-background-banner.jpg')",
         backgroundBlendMode: "overlay",
         backgroundColor: "rgba(0, 0, 0, 0.6)",
       }}

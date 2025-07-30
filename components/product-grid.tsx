@@ -1,13 +1,19 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Slider } from "@/components/ui/slider"
-import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Slider } from "@/components/ui/slider";
+import { Badge } from "@/components/ui/badge";
 import {
   Drawer,
   DrawerClose,
@@ -17,52 +23,49 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
-import { Filter, Grid, List, X, Search, ShoppingCart, Eye } from "lucide-react"
-import Image from "next/image"
-import { ProductGridSkeleton } from "./loading-states"
+} from "@/components/ui/drawer";
+import { Filter, Grid, List, X, Search, ShoppingCart, Eye } from "lucide-react";
+import Image from "next/image";
+import { ProductGridSkeleton } from "./loading-states";
 
 interface Product {
-  id: number
-  name: string
-  category: string
-  price: number
-  originalPrice?: number
-  image: string
-  onSale?: boolean
-  description?: string
+  id: number;
+  name: string;
+  category: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  onSale?: boolean;
+  description?: string;
 }
 
 interface ProductGridProps {
-  products: Product[]
-  category: string
+  products: Product[];
+  category: string;
 }
 
 export default function ProductGrid({ products, category }: ProductGridProps) {
-  const [sortBy, setSortBy] = useState("default")
-  const [viewMode, setViewMode] = useState("grid")
-  const [searchTerm, setSearchTerm] = useState("")
-  const [priceRange, setPriceRange] = useState([100, 1500]) // Increased max range for all products
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [sortBy, setSortBy] = useState("default");
+  const [viewMode, setViewMode] = useState("grid");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [priceRange, setPriceRange] = useState([100, 1500]); // Increased max range for all products
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Simulate loading state
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000) // 2 second loading simulation
+      setIsLoading(false);
+    }, 2000); // 2 second loading simulation
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   // Get category counts
-  const categoryCounts = products.reduce(
-    (acc, product) => {
-      acc[product.category] = (acc[product.category] || 0) + 1
-      return acc
-    },
-    {} as Record<string, number>,
-  )
+  const categoryCounts = products.reduce((acc, product) => {
+    acc[product.category] = (acc[product.category] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
 
   // All available categories with counts (dynamically generated from products)
   const allCategories = Object.keys(categoryCounts)
@@ -70,49 +73,56 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
       name: categoryName,
       count: categoryCounts[categoryName],
     }))
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   // Filter products
   const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesPrice = product.price >= priceRange[0] && product.price <= priceRange[1]
-    const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category)
-    return matchesSearch && matchesPrice && matchesCategory
-  })
+    const matchesSearch = product.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesPrice =
+      product.price >= priceRange[0] && product.price <= priceRange[1];
+    const matchesCategory =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(product.category);
+    return matchesSearch && matchesPrice && matchesCategory;
+  });
 
   // Sort products
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sortBy) {
       case "price-low":
-        return a.price - b.price
+        return a.price - b.price;
       case "price-high":
-        return b.price - a.price
+        return b.price - a.price;
       case "name":
-        return a.name.localeCompare(b.name)
+        return a.name.localeCompare(b.name);
       case "category":
-        return a.category.localeCompare(b.category)
+        return a.category.localeCompare(b.category);
       default:
-        return 0
+        return 0;
     }
-  })
+  });
 
   const handleCategoryChange = (categoryName: string, checked: boolean) => {
     if (checked) {
-      setSelectedCategories([...selectedCategories, categoryName])
+      setSelectedCategories([...selectedCategories, categoryName]);
     } else {
-      setSelectedCategories(selectedCategories.filter((cat) => cat !== categoryName))
+      setSelectedCategories(
+        selectedCategories.filter((cat) => cat !== categoryName)
+      );
     }
-  }
+  };
 
   const clearAllFilters = () => {
-    setSearchTerm("")
-    setPriceRange([100, 1500])
-    setSelectedCategories([])
-  }
+    setSearchTerm("");
+    setPriceRange([100, 1500]);
+    setSelectedCategories([]);
+  };
 
   // Show loading skeleton
   if (isLoading) {
-    return <ProductGridSkeleton />
+    return <ProductGridSkeleton />;
   }
 
   return (
@@ -132,7 +142,9 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
           <DrawerContent className="h-full w-80 mt-0 rounded-none dark:bg-gray-800 transition-colors duration-300">
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader className="text-left">
-                <DrawerTitle className="dark:text-gray-100">Filter Products</DrawerTitle>
+                <DrawerTitle className="dark:text-gray-100">
+                  Filter Products
+                </DrawerTitle>
                 <DrawerDescription className="dark:text-gray-300">
                   Refine your search using the options below
                 </DrawerDescription>
@@ -154,7 +166,9 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
 
                 {/* Filter by Price */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-gray-600 dark:text-gray-300">Filter by price</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-600 dark:text-gray-300">
+                    Filter by price
+                  </h3>
                   <div className="mb-4">
                     <Slider
                       value={priceRange}
@@ -169,7 +183,12 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
                     <Input
                       type="number"
                       value={priceRange[0]}
-                      onChange={(e) => setPriceRange([Number.parseInt(e.target.value) || 0, priceRange[1]])}
+                      onChange={(e) =>
+                        setPriceRange([
+                          Number.parseInt(e.target.value) || 0,
+                          priceRange[1],
+                        ])
+                      }
                       className="w-20 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                       placeholder="£100"
                     />
@@ -177,7 +196,12 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
                     <Input
                       type="number"
                       value={priceRange[1]}
-                      onChange={(e) => setPriceRange([priceRange[0], Number.parseInt(e.target.value) || 1500])}
+                      onChange={(e) =>
+                        setPriceRange([
+                          priceRange[0],
+                          Number.parseInt(e.target.value) || 1500,
+                        ])
+                      }
                       className="w-20 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
                       placeholder="£1500"
                     />
@@ -189,14 +213,21 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
 
                 {/* Product Categories */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4 text-gray-600 dark:text-gray-300">Product Categories</h3>
+                  <h3 className="text-lg font-semibold mb-4 text-gray-600 dark:text-gray-300">
+                    Product Categories
+                  </h3>
                   <div className="space-y-3 max-h-60 overflow-y-auto">
                     {allCategories.map((cat) => (
-                      <div key={cat.name} className="flex items-center space-x-2">
+                      <div
+                        key={cat.name}
+                        className="flex items-center space-x-2"
+                      >
                         <Checkbox
                           id={cat.name}
                           checked={selectedCategories.includes(cat.name)}
-                          onCheckedChange={(checked) => handleCategoryChange(cat.name, checked as boolean)}
+                          onCheckedChange={(checked) =>
+                            handleCategoryChange(cat.name, checked as boolean)
+                          }
                         />
                         <label
                           htmlFor={cat.name}
@@ -288,12 +319,20 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
       </div>
 
       {/* Active Filters Display */}
-      {(searchTerm || selectedCategories.length > 0 || priceRange[0] !== 100 || priceRange[1] !== 1500) && (
+      {(searchTerm ||
+        selectedCategories.length > 0 ||
+        priceRange[0] !== 100 ||
+        priceRange[1] !== 1500) && (
         <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg transition-colors duration-300">
           <div className="flex flex-wrap gap-2 items-center">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Active filters:</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              Active filters:
+            </span>
             {searchTerm && (
-              <Badge variant="secondary" className="gap-1.5 dark:bg-gray-700 dark:text-gray-200">
+              <Badge
+                variant="secondary"
+                className="gap-1.5 dark:bg-gray-700 dark:text-gray-200"
+              >
                 Search: {searchTerm}
                 <button
                   onClick={() => setSearchTerm("")}
@@ -304,7 +343,11 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
               </Badge>
             )}
             {selectedCategories.map((category) => (
-              <Badge key={category} variant="secondary" className="gap-1.5 dark:bg-gray-700 dark:text-gray-200">
+              <Badge
+                key={category}
+                variant="secondary"
+                className="gap-1.5 dark:bg-gray-700 dark:text-gray-200"
+              >
                 {category}
                 <button
                   onClick={() => handleCategoryChange(category, false)}
@@ -315,7 +358,10 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
               </Badge>
             ))}
             {(priceRange[0] !== 100 || priceRange[1] !== 1500) && (
-              <Badge variant="secondary" className="gap-1.5 dark:bg-gray-700 dark:text-gray-200">
+              <Badge
+                variant="secondary"
+                className="gap-1.5 dark:bg-gray-700 dark:text-gray-200"
+              >
                 £{priceRange[0]} - £{priceRange[1]}
                 <button
                   onClick={() => setPriceRange([100, 1500])}
@@ -461,11 +507,15 @@ export default function ProductGrid({ products, category }: ProductGridProps) {
           <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors duration-300">
             No products found matching your criteria.
           </p>
-          <Button onClick={clearAllFilters} variant="outline" className="mt-4 dark:border-gray-600 dark:text-gray-300">
+          <Button
+            onClick={clearAllFilters}
+            variant="outline"
+            className="mt-4 dark:border-gray-600 dark:text-gray-300"
+          >
             Clear filters and try again
           </Button>
         </div>
       )}
     </div>
-  )
+  );
 }

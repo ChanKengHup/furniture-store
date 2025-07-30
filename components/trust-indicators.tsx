@@ -1,5 +1,5 @@
-import { Award, Truck, Wrench, Headphones, Shield } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Award, Truck, Wrench, Headphones, Shield } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function TrustIndicators() {
   const indicators = [
@@ -8,10 +8,10 @@ export default function TrustIndicators() {
     { icon: Wrench, text: "Free Installation" },
     { icon: Headphones, text: "After Sales Support" },
     { icon: Shield, text: "5 Years Warranty" },
-  ]
+  ];
 
   return (
-    <section className="py-8 md:py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <section className="pt-2 pb-8 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-6">
           {indicators.map((item, index) => (
@@ -27,5 +27,5 @@ export default function TrustIndicators() {
         </div>
       </div>
     </section>
-  )
+  );
 }
