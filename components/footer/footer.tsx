@@ -136,7 +136,7 @@ export default function Footer() {
                 size="lg"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground dark:border-primary-400 dark:text-primary-300 dark:hover:bg-primary dark:hover:text-primary-foreground px-8 py-3 text-base transition-all duration-300"
               >
-                Contact Us
+                <a href="tel:+84355012266">Contact Us</a>
               </Button>
             </div>
           </div>

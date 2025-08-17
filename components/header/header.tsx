@@ -3,12 +3,6 @@
 import Link from "next/link";
 import { ShoppingCart, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
 import { Badge } from "@/components/ui/badge";
 import { useTheme } from "next-themes";
 import MobileMenu from "./mobileMenu";
