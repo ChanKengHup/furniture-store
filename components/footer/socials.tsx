@@ -22,7 +22,12 @@ export default function Socials() {
             size="icon"
             className="bg-gray-500/80 hover:bg-gray-400/80 text-white border-0 transition-all duration-300"
           >
-            <Facebook className="h-5 w-5" />
+            <a
+              href="https://www.facebook.com/lylynguyen.hatinh"
+              target="_blank"
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
           </Button>
           <Button
             variant="secondary"

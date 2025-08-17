@@ -14,8 +14,11 @@ import {
 } from "@/components/ui/sheet";
 import { Badge } from "../ui/badge";
 import { useTheme } from "next-themes";
+import { useState } from "react";
 
 export default function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -58,7 +61,7 @@ export default function MobileMenu() {
         </Badge>
       </Button>
 
-      <Sheet>
+      <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button
             variant="ghost"
@@ -80,24 +83,28 @@ export default function MobileMenu() {
           </SheetHeader>
           <div className="grid gap-6 py-6">
             <Link
+              onClick={() => setIsOpen(false)}
               href="/products"
               className="text-lg font-medium hover:text-primary text-gray-700 dark:text-gray-300 transition-colors"
             >
               All Products
             </Link>
             <Link
+              onClick={() => setIsOpen(false)}
               href="/sofa"
               className="text-lg font-medium hover:text-primary text-gray-700 dark:text-gray-300 transition-colors"
             >
               Sofa
             </Link>
             <Link
+              onClick={() => setIsOpen(false)}
               href="/chair"
               className="text-lg font-medium hover:text-primary text-gray-700 dark:text-gray-300 transition-colors"
             >
               Chair
             </Link>
             <Link
+              onClick={() => setIsOpen(false)}
               href="/table"
               className="text-lg font-medium hover:text-primary text-gray-700 dark:text-gray-300 transition-colors"
             >

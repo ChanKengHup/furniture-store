@@ -9,13 +9,13 @@ import Footer from "@/components/footer/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DECOR - Style, Comfort & Affordable Furniture Store",
+  title: "HaLy - Hà Ly Shop",
   description:
     "Discover modern furniture collections including chairs, sofas, tables and home decor. Free installation, 10 years experience, 5 years warranty. Shop now with 10% off all products!",
   keywords:
     "furniture, chairs, sofas, tables, home decor, modern furniture, affordable furniture, furniture store",
   openGraph: {
-    title: "DECOR - Style, Comfort & Affordable Furniture Store",
+    title: "HaLy - Hà Ly Shop",
     description:
       "Discover modern furniture collections with free installation and 5 years warranty",
     type: "website",
