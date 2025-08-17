@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Star } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Star } from "lucide-react";
 
 export default function Testimonials() {
   const testimonials = [
@@ -19,7 +19,7 @@ export default function Testimonials() {
       author: "Paul Smithen",
       rating: 4,
     },
-  ]
+  ];
 
   return (
     <section className="py-8 md:py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
@@ -34,13 +34,20 @@ export default function Testimonials() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-0 shadow-md bg-white dark:bg-gray-700 transition-colors duration-300">
+            <Card
+              key={index}
+              className="border-0 shadow-md bg-white dark:bg-gray-700 transition-colors duration-300"
+            >
               <CardContent className="p-4 md:p-6">
                 <div className="flex mb-3 md:mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={`h-3 w-3 md:h-4 md:w-4 ${i < testimonial.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300 dark:text-gray-600"} transition-colors duration-300`}
+                      className={`h-3 w-3 md:h-4 md:w-4 ${
+                        i < testimonial.rating
+                          ? "fill-yellow-400 text-yellow-400"
+                          : "text-gray-300 dark:text-gray-600"
+                      } transition-colors duration-300`}
                     />
                   ))}
                 </div>
@@ -49,7 +56,10 @@ export default function Testimonials() {
                 </blockquote>
                 <div className="flex items-center space-x-3">
                   <Avatar className="h-8 w-8 md:h-10 md:w-10">
-                    <AvatarImage src={`/placeholder.svg?height=40&width=40`} />
+                    <AvatarImage
+                      src={`/placeholder.svg?height=40&width=40`}
+                      alt={testimonial.author}
+                    />
                     <AvatarFallback className="bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs md:text-sm transition-colors duration-300">
                       {testimonial.author
                         .split(" ")
@@ -72,5 +82,5 @@ export default function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }

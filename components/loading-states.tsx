@@ -1,5 +1,10 @@
-import { Skeleton } from "@/components/ui/skeleton"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 // Header Loading Skeleton
 export function HeaderSkeleton() {
@@ -26,7 +31,7 @@ export function HeaderSkeleton() {
         </div>
       </div>
     </header>
-  )
+  );
 }
 
 // Hero Section Loading Skeleton
@@ -51,7 +56,7 @@ export function HeroSkeleton() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Product Showcase Loading Skeleton
@@ -96,7 +101,7 @@ export function ProductShowcaseSkeleton() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Trust Indicators Loading Skeleton
@@ -116,7 +121,7 @@ export function TrustIndicatorsSkeleton() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Sale Section Loading Skeleton
@@ -143,7 +148,7 @@ export function SaleSkeleton() {
         </Card>
       </div>
     </section>
-  )
+  );
 }
 
 // Latest Products Loading Skeleton
@@ -177,7 +182,7 @@ export function LatestProductsSkeleton() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Testimonials Loading Skeleton
@@ -216,7 +221,7 @@ export function TestimonialsSkeleton() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // Product Grid Loading Skeleton
@@ -236,7 +241,7 @@ export function ProductGridSkeleton() {
       </div>
 
       {/* Product Grid Skeleton */}
-      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {[...Array(6)].map((_, index) => (
           <Card key={index} className="group">
             <CardContent className="p-0">
@@ -254,7 +259,7 @@ export function ProductGridSkeleton() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 // Footer Loading Skeleton
@@ -294,5 +299,5 @@ export function FooterSkeleton() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
